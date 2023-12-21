@@ -4,20 +4,22 @@
 import PackageDescription
 
 let package = Package(
-    name: "TestKitPackage",
+    name: "TestKit",
+    platforms: [
+        .iOS(.v16)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "TestKitPackage",
-            targets: ["TestKitPackage"]),
+            name: "TestKit",
+            targets: ["TestKit"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "TestKitPackage"),
-        .testTarget(
-            name: "TestKitPackageTests",
-            dependencies: ["TestKitPackage"]),
+        .binaryTarget(
+            name: "TestKit",
+            path: "./Sources/TestKit.xcframework"
+        ),
     ]
 )
